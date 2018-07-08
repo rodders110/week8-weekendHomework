@@ -10,4 +10,6 @@ public class DBTheatre {
         theatre.addPlay(play);
         DBHelper.update(play);
     }
+
+
 }
