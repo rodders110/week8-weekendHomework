@@ -3,6 +3,7 @@ package models;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,6 +21,7 @@ public class Theatre {
     public Theatre(String name, String address) {
         this.name = name;
         Address = address;
+        this.plays = new ArrayList<Play>();
     }
 
     @Id

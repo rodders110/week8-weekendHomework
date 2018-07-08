@@ -1,22 +1,26 @@
 import db.DBHelper;
+import db.DBTheatre;
 import models.*;
 import models.Character;
+
+import java.util.List;
 
 public class Runner {
 
     public static void main(String[] args) {
 
         Character character1 = new Character("a Character");
-        Play play = new Play("The Cruicible", GenreType.DRAMA, 4);
-        Author author1 = new Author("Alan Miller");
-        author1.addPlay(play);
-        Theatre theatre1 = new Theatre("The Grand Ole Opry", "2-4 Govan Road, Glasgow");
+        DBHelper.save(character1);
 
+        Author author1 = new Author("Alan Miller");
         DBHelper.save(author1);
+
+        Play play = new Play("The Cruicible", GenreType.DRAMA, 4);
         play.setAuthor(author1);
-        DBHelper.save(theatre1);
         DBHelper.save(play);
-        DBHelper.save(character1);
-        DBHelper.save(character1);
+
+        Theatre theatre1 = new Theatre("The Grand Ole Opry", "2-4 Govan Road, Glasgow");
+        theatre1.addPlay(play);
+        DBHelper.save(theatre1);
     }
 }

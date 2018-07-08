@@ -3,6 +3,7 @@ package models;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -24,6 +25,7 @@ public class Play {
         this.title = title;
         this.genre = genre;
         this.pop = pop;
+        this.theatres = new ArrayList<Theatre>();
     }
 
     @Id
@@ -69,8 +71,8 @@ public class Play {
         return characters;
     }
 
-    public void setCharacters(Character character) {
-        this.characters.add(character);
+    public void setCharacters(List<Character> characters) {
+        this.characters = characters;
     }
 
     @ManyToOne
