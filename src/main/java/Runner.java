@@ -25,5 +25,7 @@ public class Runner {
         Theatre theatre1 = new Theatre("The Grand Ole Opry", "2-4 Govan Road, Glasgow");
         theatre1.addPlay(play);
         DBHelper.save(theatre1);
+
+        List<Play> query = DBTheatre.allPlays(theatre1);
     }
 }
